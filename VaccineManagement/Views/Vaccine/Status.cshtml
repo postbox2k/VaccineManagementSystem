@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Status";
+}
+
+<style>
+    h5 {
+        font-family: 'Cascadia Mono';
+    }
+</style>
+<h4><center>Booked Successfully</center></h4>
+<center>
+<input type='button' value='Back to Details' id='Buton' onClick='redirectOnClick()' /></center>
+<script>
+    function redirectOnClick() {
+        document.location = 'BookedDetails';  //controller/action
+    }
+</script>

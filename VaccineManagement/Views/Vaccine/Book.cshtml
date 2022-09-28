@@ -1,0 +1,97 @@
+﻿@model VaccineManagement.Models.Booking
+
+@{
+    ViewData["Title"] = "Book";
+}
+
+<html>
+<head>
+    <div class="row">
+        <div class="col-md-9"><h4>Booking</h4></div>
+        <div class="col-md-3">
+            <div style="padding:5px;width:190px">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Vaccine" asp-action="BookedDetails" style="background-color:Highlight;border-radius:5px">Back to Details</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <style>
+        body {
+            background-color:lightyellow;
+        }
+
+        #intro {
+            height: max-content;
+            font-family: 'Cascadia Mono';
+        }
+
+        .navbar .nav-link {
+            color: #fff !important;
+        }
+
+        span {
+            font-size: 10px;
+        }
+
+        div {
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="intro">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-md-8">
+                    <form asp-action="Book" class="bg-white  rounded-5 shadow-5-strong p-5">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                            <input asp-for="Id" class="form-control" />
+                            <label asp-for="Id" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                            <input asp-for="Name" class="form-control" />
+                            <label asp-for="Name" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="age" class="text-danger"></span>
+                            <input asp-for="age" class="form-control" />
+                            <label asp-for="age" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                            <input asp-for="Gender" class="form-control" />
+                            <label asp-for="Gender" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="city" class="text-danger"></span>
+                            <input asp-for="city" class="form-control" />
+                            <label asp-for="city" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="Schedule" class="text-danger"></span>
+                            <input asp-for="Schedule" class="form-control" />
+                            <label asp-for="Schedule" class="control-label"></label>
+                        </div>
+                        <div class="form-outline mb-4" hidden>
+                            <span asp-validation-for="AID" class="text-danger"></span>
+                            <input asp-for="AID" class="form-control" value=@ViewBag.AID />
+                            <label asp-for="AID" class="control-label"></label>
+                        </div>
+                        <button type="submit" value="Book Schedule" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

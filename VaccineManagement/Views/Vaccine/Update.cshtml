@@ -1,0 +1,93 @@
+﻿@model VaccineManagement.Models.Booking
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>Booking</h4>
+<hr />
+<!--<body>
+    <form method="post" asp-controller="Emp" asp-action="Edit">
+        <table>
+            <tr>
+                <th>ID</th>
+                <td><input type="text" asp-for="Id" /></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" asp-for="Name" /></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td><input type="text" asp-for="age" /></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td><input type="text" asp-for="Gender" /></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><input type="text" asp-for="city" /></td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td><input type="text" asp-for="Schedule" /></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="Update Me" class="btn btn-success" /></td>
+            </tr>
+        </table>
+    </form>
+</body>-->
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="age" class="control-label"></label>
+                <input asp-for="age" class="form-control" />
+                <span asp-validation-for="age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="city" class="control-label"></label>
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Schedule" class="control-label"></label>
+                <input asp-for="Schedule" class="form-control" />
+                <span asp-validation-for="Schedule" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="AID" class="control-label"></label>
+                <input asp-for="AID" class="form-control" value=@ViewBag.AID />
+                <span asp-validation-for="AID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="BookedDetails">Back</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

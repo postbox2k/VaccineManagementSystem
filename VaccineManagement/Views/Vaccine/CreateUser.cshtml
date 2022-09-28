@@ -1,0 +1,78 @@
+﻿@model VaccineManagement.Models.Account
+
+@{
+    ViewData["Title"] = "CreateUser";
+}
+<html>
+
+<head>
+    <div class="row">
+        <div class="col-md-9"><h4>User Account Creation</h4></div>
+        <div class="col-md-3">
+            <div style="padding:5px;width:170px">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Vaccine" asp-action="Index" style="background-color:Highlight;border-radius:5px">Back to Login</a>
+            </div>
+        </div>
+    </div>
+    <hr />
+
+
+    <style>
+        body {
+            background-color: lightyellow;
+        }
+
+        #intro {
+            height: max-content;
+            font-family: 'Cascadia Mono';
+        }
+
+        .navbar .nav-link {
+            color: #fff !important;
+        }
+
+        span {
+            font-size: 10px;
+        }
+
+        div {
+            border-radius: 6px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="intro">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-md-8">
+                    <form asp-action="CreateUser" class="bg-white  rounded-5 shadow-5-strong p-5">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="Id" class="text-danger"></span>
+                            <input asp-for="Id" class="form-control" />
+                            <label asp-for="Id" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="username" class="text-danger"></span>
+                            <input asp-for="username" class="form-control" />
+                            <label asp-for="username" class="form-label"></label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <span asp-validation-for="password" class="text-danger"></span>
+                            <input asp-for="password" class="form-control" type="password" />
+                            <label asp-for="password" class="form-label"></label>
+                        </div>
+                        <button type="submit" value="Create" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

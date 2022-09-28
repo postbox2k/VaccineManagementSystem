@@ -1,0 +1,59 @@
+﻿@model VaccineManagement.Models.Account;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Cascadia Mono';
+        }
+
+        div, h2, h6, table, tr, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8" style="background-color:lightgray;text-align:center">
+                <h2>Vaccine Management System</h2><br /><br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Register</h6>
+                        <button><a asp-action="CreateUser">Click Here👆🏻</a></button>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Existing Account</h6>
+                        @ViewBag.error
+                        <form method="post" asp-action="Login" asp-controller="Vaccine">
+                            <table class="table-bordered">
+                                <tr>
+                                    <td>UserName:</td>
+                                    <td><input type="text" asp-for="username" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type="password" asp-for="password" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="submit" value="Login" class="btn btn-success"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
