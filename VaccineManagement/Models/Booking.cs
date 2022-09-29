@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace VaccineManagement.Models
         public string city { get; set; }
         [Required]
         public DateTime Schedule { get; set; }
+        [Column(Order = 1)]
+        [ForeignKey("Account")]
         public int AID { get; set; }
     }
 }

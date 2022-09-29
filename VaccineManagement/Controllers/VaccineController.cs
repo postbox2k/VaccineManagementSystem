@@ -136,9 +136,20 @@ namespace VaccineManagement.Controllers
 
         //Delete Record 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return RedirectToAction("BookedDetails"); //new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
+            }
+            Booking booking = db.Booking.Find(id);
+            ViewBag.AID = Global.AAID;
+            if (booking == null)
+            {
+                return RedirectToAction("BookedDetails"); //HttpNotFound();
+            }
+            return View(booking);
         }
 
      
@@ -146,7 +157,6 @@ namespace VaccineManagement.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            //match the id and remove the records based on given ID
             db.Booking.Remove(db.Booking.Find(id));
             db.SaveChanges();
             return RedirectToAction("BookedDetails");
@@ -162,6 +172,10 @@ namespace VaccineManagement.Controllers
             ViewBag.creds = db.Account.ToList();
             foreach (var item in ViewBag.creds)
             {
+                //need to remove loop
+
+                // ViewBag.details = db.Booking.FromSqlRaw("select * from dbo.Booking where AID=@id", new SqlParameter("@id", Global.AAID)).ToList();
+           
             if (username != null && password != null && username.Equals(item.username) && password.Equals(item.password))
             {
                     //store value in session

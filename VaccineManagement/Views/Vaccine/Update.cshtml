@@ -3,48 +3,30 @@
     ViewData["Title"] = "Update";
 }
 
-<h1>Update</h1>
-
-<h4>Booking</h4>
-<hr />
-<!--<body>
-    <form method="post" asp-controller="Emp" asp-action="Edit">
-        <table>
-            <tr>
-                <th>ID</th>
-                <td><input type="text" asp-for="Id" /></td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td><input type="text" asp-for="Name" /></td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td><input type="text" asp-for="age" /></td>
-            </tr>
-            <tr>
-                <th>Gender</th>
-                <td><input type="text" asp-for="Gender" /></td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td><input type="text" asp-for="city" /></td>
-            </tr>
-            <tr>
-                <th>Salary</th>
-                <td><input type="text" asp-for="Schedule" /></td>
-            </tr>
-            <tr>
-                <th></th>
-                <td><input type="submit" value="Update Me" class="btn btn-success" /></td>
-            </tr>
-        </table>
-    </form>
-</body>-->
 
 <div class="row">
+    <div class="col-md-9"><h4>Update Booking</h4></div>
+    <div class="col-md-3">
+        <div style="padding:5px;width:190px">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Vaccine" asp-action="BookedDetails" style="background-color:Highlight;border-radius:5px">Back to Details</a>
+        </div>
+    </div>
+</div>
+<hr />
+<style>
+    body{
+        background-color:lightyellow;
+    }
+    div {
+        border-radius: 5px;
+    }
+
+</style>
+<body>
+<div class="container">
+<div class="row justify-content-center">
     <div class="col-md-4">
-        <form asp-action="Update">
+        <form asp-action="Update" class="bg-white  rounded-5 shadow-5-strong p-5">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -83,11 +65,8 @@
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="BookedDetails">Back</a>
-</div>
-
+    </div>
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

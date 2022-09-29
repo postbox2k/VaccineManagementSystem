@@ -47,7 +47,7 @@
                 <td>@item.Schedule</td>
                 <td hidden>@item.AID</td>
                 <td><a asp-action ="Update" asp-route-id="@item.Id" class="btn btn-danger">Update</a></td>
-                <td><a asp-action ="Update" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                <td><a asp-action ="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
             </tr>
         }
     </table>
@@ -88,4 +88,17 @@
     <!--<a asp-action="Edit" asp-route-id="rModel.Id">Edit</a>--> 
     <!--<a asp-action="BookedDetails">Back</a>-->
 </div>
+
+
+
+<script>
+<!--
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}
+
+window.onload = timedRefresh(5000);
+
+//   -->
+</script>
 
